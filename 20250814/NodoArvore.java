@@ -3,11 +3,10 @@ public class NodoArvore {
     public int chave;
     public NodoArvore filhoDireita;
 
-    private NodoArvore(int chave) {
+    // O construtor foi alterado para public
+    public NodoArvore(int chave) {
         this.chave = chave;
         this.filhoEsquerda = null;
         this.filhoDireita = null;
     }
-    
-
 }
