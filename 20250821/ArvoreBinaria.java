@@ -95,7 +95,8 @@ public class ArvoreBinaria implements Arvore {
      * Raiz -> Esquerda -> Direita. 
      */
     @Override
-    public void imprimePreFixado() {
+    public void imprimePreFixado(int valor) {
+        this.raiz = imprimePreFixadoRecursivo(this.raiz, valor);
     }
     
     /**
@@ -103,6 +104,45 @@ public class ArvoreBinaria implements Arvore {
      * @param no O nó raiz da subárvore a ser impressa.
      */
     private void imprimePreFixadoRecursivo(NodoArvore no) {
+        if (no != null){
+            System.out.print(no.chave + "");
+            imprimePreFixadoRecursivo(no.filhoEsquerda);
+            imprimePreFixadoRecursivo(no.filhoDireita);
+        }
     }
+    
+    @Override
+    public void imprimePosFixado(int valor) {
+        this.raiz = imprimePosFixadoRecursivo(this.raiz, valor);
+    }
+    
+    /**
+     * Método auxiliar recursivo para o caminhamento pós-fixado.
+     * @param no O nó raiz da subárvore a ser impressa.
+     */
+    private void imprimePosFixadoRecursivo(NodoArvore no) {
+        if (no != null){
+            imprimePosFixadoRecursivo(no.filhoEsquerda);
+            imprimePosFixadoRecursivo(no.filhoDireita);
+            System.out.print(no.chave + "");
+        }
+    }
+    @Override
+    public void imprimeOrdemFixado(int valor) {
+        this.raiz = imprimePosFixadoRecursivo(this.raiz, valor);
+    }
+    
+    /**
+     * Método auxiliar recursivo para o caminhamento ordem.
+     * @param no O nó raiz da subárvore a ser impressa.
+     */
+    private void imprimeOrdemFixadoRecursivo(NodoArvore no) {
+        if (no != null){
+            imprimePosFixadoRecursivo(no.filhoEsquerda);
+            System.out.print(no.chave + "");
+            imprimePosFixadoRecursivo(no.filhoDireita);
+        }
+    }
+
 
 }
