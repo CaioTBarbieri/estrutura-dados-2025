@@ -43,7 +43,7 @@ public class ArvoreBinaria<T extends Comparable<T>> implements Arvore<T> {
     private NodoArvore<T> inserirRecursivo(NodoArvore<T> noAtual, T objeto) {
         // Caso base: se a árvore (ou subárvore) estiver vazia, cria o novo nó.
         if (noAtual == null) {
-            return new NodoArvore(objeto);
+            return new NodoArvore<T>(objeto);
         }
 
         // Caso recursivo: desce na árvore
